@@ -12,7 +12,7 @@ def knapsack(weight,cost,c):
   total=c
   for i in range(n,0,-1):
     if table[i][total]!=table[i-1][total]:
-      solution.append(i-1)
+      solution.append(i)
       total-=weight[i-1]
   return table[n][c],solution
 
@@ -26,7 +26,7 @@ for i in range(n):
   w1=int(input(f"Enter the cost of item{i+1}"))
   c.append(w1)
 ca=int(input("enter the capacity"))
-soln,total=knapsack(w,c,ca)
+total,soln=knapsack(w,c,ca)
 print("the total profit is",total)
 print("selected items",soln)
-print("selected weights",[w[i] for i in soln])
+# print("selected weights",[w[i] for i in soln])
