@@ -49,14 +49,7 @@ def printt(node, val=''):
         printt(node.r, newVal)
     if not node.l and not node.r:
         print(f"{node.s} -> {newVal}")
-# def printt(node,val=''):
-#   new=val+str(node.huff)
-#   if node.l:
-#     printt(node.l,new)
-#   else:
-#     printt(node.r,new)
-#   if not node.l and not node.r:
-#     print(f"{node.s}->{new}")
+
 
 char=input("Enter the characters").split(' ')
 f=[int (i) for i in input("Enter the frequency").split(' ')]
@@ -67,8 +60,8 @@ for i in range(len(char)):
 while len(nodes)>1:
   l=heapq.heappop(nodes)
   r=heapq.heappop(nodes)
-  l.huff='0'
-  r.huff='1'
+  l.huff=0
+  r.huff=1
   nn=Node(l.f+r.f,l.s+r.s,l,r)
   heapq.heappush(nodes,nn)
 printt(nodes[0])
